@@ -77,7 +77,7 @@
                 // Signed in 
                 const user = userCredential.user;
                 set(ref(database, 'users/' + user.uid),{
-                  username: user,
+                  user: user,
                   email: email
                 })
 
