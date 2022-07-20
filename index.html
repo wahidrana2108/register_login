@@ -4,90 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register and login</title>
-    <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/css/style.css">
+    <title>Document</title>
 </head>
 <body>
-    
-
-
-
-  <!-- signup form -->
-  <div class="container">
-    <br><br>
-    <h1>register form</h1>
-    <form action="">
-      <input type="text" name="user" id="user" class="form-control" placeholder="User Name"><br>
-      <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email"><br>
-      <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password"><br>
-      <input type="submit" name="signup_submit" id="signUp" class="form-control" value="Sign up">
-  </form>
-  </div>
-
-
-
-
-
-
-
-
-
-
-    <!-- bootstrap javascript -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-
-
-    <!-- firebase  authentication-->
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
-      import { getDatabase } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
-      import { getAuth } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
-
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-    
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyBmU5CVWQpLb_7huOEk4SfshfM3HZ7xiBU",
-        authDomain: "mydb-c7940.firebaseapp.com",
-        projectId: "mydb-c7940",
-        storageBucket: "mydb-c7940.appspot.com",
-        messagingSenderId: "154093139871",
-        appId: "1:154093139871:web:def7c08b53f043a6116faa"
-      };
-    
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const database = getDatabase(app);
-      const auth = getAuth(app);
-
-      signUp.addEventListener('click',(e) =>{
-
-        var user = document.getElementById('user').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-
-         createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-
-            alert('User created!')
-            // ...
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-
-            alert(error.message);
-            // ..
-          });
-
-      })
-
-    </script>
+    hi
 </body>
 </html>
