@@ -76,11 +76,11 @@
               .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                set(ref(database, 'users/' + user.uid),{
-                  user: user,
+
+                set(ref(database, 'users' + user.uid),{
+                  username: user,
                   email: email
                 })
-
 
                 alert('User created!');
                 // ...
