@@ -18,7 +18,7 @@
     <br><br>
     <h1>register form</h1>
     <form action="">
-      <input type="text" name="user" id="user" class="form-control" placeholder="User Name"><br>
+      <input type="text" name="username" id="username" class="form-control" placeholder="User Name"><br>
       <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email"><br>
       <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password"><br>
       <input type="submit" name="signup_submit" id="signUp" class="form-control" value="Sign up">
@@ -43,7 +43,7 @@
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
-        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
@@ -67,15 +67,19 @@
 
         signUp.addEventListener('click',(e)=>{
 
-          var user = document.getElementById('user').value;
           var email = document.getElementById('email').value;
           var password = document.getElementById('password').value;
+          var username = document.getElementById('username').value;
 
           
           createUserWithEmailAndPassword(auth, email, password)
               .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                set(ref(database, 'users/' + user.uid),{
+                  username: username
+                  email: email
+                })
                 alert('User created!');
                 // ...
               })
