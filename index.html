@@ -41,52 +41,53 @@
 
     <!-- firebase  authentication-->
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
-        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyATwEifKgWJ5eVSg35cowRp93k25_z0bss",
-          authDomain: "authentication-b8950.firebaseapp.com",
-          databaseURL: "https://authentication-b8950-default-rtdb.firebaseio.com",
-          projectId: "authentication-b8950",
-          storageBucket: "authentication-b8950.appspot.com",
-          messagingSenderId: "782093056425",
-          appId: "1:782093056425:web:ef1d3db8d4ebf7ac76ecb8"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-        const auth = getAuth();
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+      import { getDatabase } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
 
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBmU5CVWQpLb_7huOEk4SfshfM3HZ7xiBU",
+        authDomain: "mydb-c7940.firebaseapp.com",
+        projectId: "mydb-c7940",
+        storageBucket: "mydb-c7940.appspot.com",
+        messagingSenderId: "154093139871",
+        appId: "1:154093139871:web:def7c08b53f043a6116faa"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const auth = getAuth(app);
 
-        signUp.addEventListener('click',(e)=>{
+      signUp.addEventListener('click',(e) =>{
 
-          var user = document.getElementById('user').value;
-          var email = document.getElementById('email').value;
-          var password = document.getElementById('password').value;
+        var user = document.getElementById('user').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
 
-          
-          createUserWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                alert('User created!');
-                // ...
-              })
-              .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(error.message);
-                // ..
-              });
-        })
+         createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
 
-      </script>
+            alert('User created!')
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            alert(error.message);
+            // ..
+          });
+
+      })
+
+    </script>
 </body>
 </html>
